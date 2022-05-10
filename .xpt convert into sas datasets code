@@ -1,0 +1,25 @@
+
+                code for .xpt file convert into sas datasets
+
+libname sasfile '/sastest/clinical/dev/legacy/vts_270/yoda/data/blinded/YODA NPC data/BCI_NPC_Registry_YODA/AC-056C501/Data/AC-056C501-data';
+libname xptfile xport '/sastest/clinical/dev/legacy/vts_270/yoda/data/blinded/YODA NPC data/BCI_NPC_Registry_YODA/AC-056C501/Data/AC-056C501-data/adrrepor.xpt' access=readonly;
+proc copy inlib=xptfile outlib=sasfile;
+run;
+
+
+
+              
+			  libname sasfile '/sasprod1/clinical';
+libname xptfile xport '/sasprod1/clinical/audasses.xpt' access=readonly;
+proc copy inlib=xptfile outlib=sasfile;
+run;
+
+libname sasfile '/sasprod1/clinical/dev/legacy/vts_270/yoda';
+libname xptfile xport '/sasprod1/clinical/dev/legacy/vts_270/yoda/audasses.xpt' access=readonly;
+proc copy inlib=xptfile outlib=sasfile;
+run;
+
+libname sasfile "/sasprod1/clinical";
+libname xptfile xport "/sasprod1/clinical/audasses.xpt" access=readonly;
+proc copy inlib=xptfile outlib=sasfile;
+run;
